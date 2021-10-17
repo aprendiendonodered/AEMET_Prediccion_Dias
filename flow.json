@@ -1,1 +1,242 @@
-[]
+[
+    {
+        "id": "2eb373d0.c952fc",
+        "type": "tab",
+        "label": "AEMET Predicción",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8deb4c14.ee2b1",
+        "type": "inject",
+        "z": "2eb373d0.c952fc",
+        "name": "api key",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "jja",
+        "payloadType": "str",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "fc6e73f3.061c"
+            ]
+        ]
+    },
+    {
+        "id": "a74a0102.7fb14",
+        "type": "http request",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/39075/?api_key={{apikey}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "a2a53510.6635b8",
+                "3974527e.01031e"
+            ]
+        ]
+    },
+    {
+        "id": "a2a53510.6635b8",
+        "type": "debug",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fc6e73f3.061c",
+        "type": "change",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "apikey",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "a74a0102.7fb14"
+            ]
+        ]
+    },
+    {
+        "id": "aefb8bf7.5f6b68",
+        "type": "debug",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 750,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3974527e.01031e",
+        "type": "json",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "aefb8bf7.5f6b68",
+                "9fd8484.0bef3b8"
+            ]
+        ]
+    },
+    {
+        "id": "9fd8484.0bef3b8",
+        "type": "change",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "payload.datos",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "767c9b41.5514e4"
+            ]
+        ]
+    },
+    {
+        "id": "767c9b41.5514e4",
+        "type": "http request",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "4c2219e1287af879"
+            ]
+        ]
+    },
+    {
+        "id": "e1c54a83.819008",
+        "type": "debug",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 610,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4c2219e1287af879",
+        "type": "json",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "e1c54a83.819008",
+                "b2b1ac09eeca9767",
+                "77037d471458d034"
+            ]
+        ]
+    },
+    {
+        "id": "b2b1ac09eeca9767",
+        "type": "debug",
+        "z": "2eb373d0.c952fc",
+        "name": "Fecha",
+        "active": false,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload[0].prediccion.dia[3].fecha",
+        "statusType": "msg",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "77037d471458d034",
+        "type": "debug",
+        "z": "2eb373d0.c952fc",
+        "name": "Máxima",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload[0].prediccion.dia[3].temperatura.maxima",
+        "statusType": "msg",
+        "x": 600,
+        "y": 360,
+        "wires": []
+    }
+]
