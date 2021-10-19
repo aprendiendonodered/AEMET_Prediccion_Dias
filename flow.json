@@ -7,6 +7,174 @@
         "info": ""
     },
     {
+        "id": "bebca97d47a86131",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5c3b9cb110393e1f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "wi-wu-chancerain",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ebb30b17ef3e19b1",
+        "type": "ui_group",
+        "name": "Predicción Lluvia Santander",
+        "tab": "5c3b9cb110393e1f",
+        "order": 1,
+        "disp": true,
+        "width": "21",
+        "collapse": false
+    },
+    {
+        "id": "7418af94d289482a",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 2,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "f6b6e42b0829ec96",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 4,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "68d32f44b6ad74c5",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 6,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "a8398219ed794cb2",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 8,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "49708793e91a7dfe",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 10,
+        "width": 21,
+        "height": 1
+    },
+    {
+        "id": "85bde3f786c64096",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ebb30b17ef3e19b1",
+        "order": 12,
+        "width": 21,
+        "height": 1
+    },
+    {
         "id": "8deb4c14.ee2b1",
         "type": "inject",
         "z": "2eb373d0.c952fc",
@@ -20,14 +188,13 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "43200",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "",
         "topic": "",
-        "payload": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcHJlbmRpZW5kb2FyZHVpbm9AZ21haWwuY29tIiwianRpIjoiNTY1MTFmZTgtMmI3Ny00MDc3LWJjOGItOTJhYzZhNGYzNDE0IiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE2MzQ0NjA0MzcsInVzZXJJZCI6IjU2NTExZmU4LTJiNzctNDA3Ny1iYzhiLTkyYWM2YTRmMzQxNCIsInJvbGUiOiIifQ.n2S5PxL3DZDdmrmuQOYUO4gUm9vo7eWaNkTEPS6--_k",
         "payloadType": "str",
-        "x": 110,
+        "x": 100,
         "y": 140,
         "wires": [
             [
@@ -183,7 +350,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 610,
+        "x": 650,
         "y": 240,
         "wires": []
     },
@@ -201,7 +368,8 @@
             [
                 "e1c54a83.819008",
                 "b2b1ac09eeca9767",
-                "77037d471458d034"
+                "77037d471458d034",
+                "6b220e9d9e05872f"
             ]
         ]
     },
@@ -218,8 +386,8 @@
         "targetType": "msg",
         "statusVal": "payload[0].prediccion.dia[3].fecha",
         "statusType": "msg",
-        "x": 590,
-        "y": 300,
+        "x": 630,
+        "y": 280,
         "wires": []
     },
     {
@@ -235,8 +403,265 @@
         "targetType": "msg",
         "statusVal": "payload[0].prediccion.dia[3].temperatura.maxima",
         "statusType": "msg",
-        "x": 600,
-        "y": 360,
+        "x": 640,
+        "y": 340,
         "wires": []
+    },
+    {
+        "id": "c67736102f33b23e",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[0].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[0].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "03eaddb2f7a14158",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[1].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[1].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "99132fb78c0baed8",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[2].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[2].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1688cbda86e2bd79",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 7,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[3].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[3].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "0ae09c42b6c64e89",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 9,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[4].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[4].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "28840f8a9e49a0b3",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 11,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[5].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[5].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "715cb74c58aeae3f",
+        "type": "ui_gauge",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "group": "ebb30b17ef3e19b1",
+        "order": 13,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "{{msg.payload[0].prediccion.dia[6].fecha}}",
+        "label": "%",
+        "format": "{{msg.payload[0].prediccion.dia[6].probPrecipitacion[0].value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "6b220e9d9e05872f",
+        "type": "change",
+        "z": "2eb373d0.c952fc",
+        "name": "Actualiza fecha",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[0].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[0].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[1].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[1].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[2].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[2].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[3].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[3].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[4].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[4].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[5].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[5].fecha,\"T\")\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "msg.payload[0].prediccion.dia[6].fecha",
+                "pt": "msg",
+                "to": "$substringBefore(msg.payload[0].prediccion.dia[6].fecha,\"T\")\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 400,
+        "wires": [
+            [
+                "c67736102f33b23e",
+                "03eaddb2f7a14158",
+                "99132fb78c0baed8",
+                "1688cbda86e2bd79",
+                "0ae09c42b6c64e89",
+                "28840f8a9e49a0b3",
+                "715cb74c58aeae3f"
+            ]
+        ]
     }
 ]
