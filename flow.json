@@ -678,7 +678,8 @@
                 "cf413bf0fa358184",
                 "ebebf389ab6d7e55",
                 "51056e36b18fb4d6",
-                "6a7adef7671ab5bf"
+                "6a7adef7671ab5bf",
+                "5f7ae608d855f8ce"
             ]
         ]
     },
@@ -706,7 +707,9 @@
         "y": 60,
         "wires": [
             [
-                "4f69f0089f144b46"
+                "4f69f0089f144b46",
+                "5f4add61a337b1ee",
+                "39e57e1aae200a1a"
             ]
         ]
     },
@@ -1056,8 +1059,8 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "lat": "43.466667",
-        "lon": "-3.8",
+        "lat": "42.47",
+        "lon": "-2.445556",
         "zoom": "7",
         "layer": "OSMG",
         "cluster": "",
@@ -1078,8 +1081,8 @@
         "mapurl": "",
         "mapopt": "",
         "mapwms": false,
-        "x": 500,
-        "y": 120,
+        "x": 620,
+        "y": 100,
         "wires": []
     },
     {
@@ -1096,15 +1099,375 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "30",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
-        "payload": "{\"name\":\"Santander\",\"lat\":43.466667,\"lon\":-3.8}",
-        "payloadType": "json",
-        "x": 290,
+        "payloadType": "date",
+        "x": 150,
         "y": 120,
+        "wires": [
+            [
+                "adad1b1df021e7df",
+                "3322572fc4c62c6c",
+                "db973399cad1ea2f"
+            ]
+        ]
+    },
+    {
+        "id": "5f7ae608d855f8ce",
+        "type": "change",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "icon_santander",
+                "pt": "global",
+                "to": "payload[0].weather[0].icon",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "datos_santander",
+                "pt": "global",
+                "to": "payload[0].main",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adad1b1df021e7df",
+        "type": "change",
+        "z": "510feb187ec9b0ac",
+        "name": "Santander",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "datos_santander",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "Santander",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "43.466667",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "-3.8",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.photoUrl",
+                "pt": "msg",
+                "to": "\"http://openweathermap.org/img/w/\"&$globalContext('icon_santander')&\".png\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.icon",
+                "pt": "msg",
+                "to": "fa-thermometer-full fa-3x",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.label",
+                "pt": "msg",
+                "to": "\"Santander \"&$string($globalContext('datos_santander.temp'))&'ºC'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "b9e96c931ed22543",
+                "3c8a0e1d8a5f5c97"
+            ]
+        ]
+    },
+    {
+        "id": "3c8a0e1d8a5f5c97",
+        "type": "debug",
+        "z": "510feb187ec9b0ac",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5f4add61a337b1ee",
+        "type": "openweathermap",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "wtype": "forecast",
+        "lon": "",
+        "lat": "",
+        "city": "logrono",
+        "country": "ES",
+        "language": "en",
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "4954e667f6372207"
+            ]
+        ]
+    },
+    {
+        "id": "39e57e1aae200a1a",
+        "type": "openweathermap",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "wtype": "forecast",
+        "lon": "",
+        "lat": "",
+        "city": "zaragoza",
+        "country": "ES",
+        "language": "en",
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "e9aadbd27513c971"
+            ]
+        ]
+    },
+    {
+        "id": "4954e667f6372207",
+        "type": "change",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "icon_logrono",
+                "pt": "global",
+                "to": "payload[0].weather[0].icon",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "datos_logrono",
+                "pt": "global",
+                "to": "payload[0].main",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9aadbd27513c971",
+        "type": "change",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "icon_zaragoza",
+                "pt": "global",
+                "to": "payload[0].weather[0].icon",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "datos_zaragoza",
+                "pt": "global",
+                "to": "payload[0].main",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3322572fc4c62c6c",
+        "type": "change",
+        "z": "510feb187ec9b0ac",
+        "name": "Logroño",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "datos_logrono",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "Logroño",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "42.47",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "-2.445556",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.photoUrl",
+                "pt": "msg",
+                "to": "\"http://openweathermap.org/img/w/\"&$globalContext('icon_logrono')&\".png\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.icon",
+                "pt": "msg",
+                "to": "fa-thermometer-full fa-3x",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.label",
+                "pt": "msg",
+                "to": "\"Logroño \"&$string($globalContext('datos_logrono.temp'))&'ºC'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 180,
+        "wires": [
+            [
+                "b9e96c931ed22543"
+            ]
+        ]
+    },
+    {
+        "id": "db973399cad1ea2f",
+        "type": "change",
+        "z": "510feb187ec9b0ac",
+        "name": "Zaragoza",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "datos_zaragoza",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "Zaragoza",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.lat",
+                "pt": "msg",
+                "to": "41.65",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.lon",
+                "pt": "msg",
+                "to": "-0.883333",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.photoUrl",
+                "pt": "msg",
+                "to": "\"http://openweathermap.org/img/w/\"&$globalContext('icon_zaragoza')&\".png\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.icon",
+                "pt": "msg",
+                "to": "fa-thermometer-full fa-3x",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.label",
+                "pt": "msg",
+                "to": "\"Zaragoza \"&$string($globalContext('datos_zaragoza.temp'))&'ºC'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 240,
         "wires": [
             [
                 "b9e96c931ed22543"
