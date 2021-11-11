@@ -14,6 +14,13 @@
         "info": ""
     },
     {
+        "id": "510feb187ec9b0ac",
+        "type": "tab",
+        "label": "Plano",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "bebca97d47a86131",
         "type": "ui_base",
         "theme": {
@@ -165,6 +172,17 @@
         "willPayload": "",
         "willMsg": {},
         "sessionExpiry": ""
+    },
+    {
+        "id": "c29b25c2f21a3b9e",
+        "type": "ui_group",
+        "name": "Mapa",
+        "tab": "5c3b9cb110393e1f",
+        "order": 3,
+        "disp": true,
+        "width": 15,
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "8deb4c14.ee2b1",
@@ -1026,6 +1044,70 @@
         "wires": [
             [
                 "6e394d0152ed0da8"
+            ]
+        ]
+    },
+    {
+        "id": "b9e96c931ed22543",
+        "type": "ui_worldmap",
+        "z": "510feb187ec9b0ac",
+        "group": "c29b25c2f21a3b9e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "lat": "43.466667",
+        "lon": "-3.8",
+        "zoom": "7",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS,SW",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 500,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8c2631df40f39e02",
+        "type": "inject",
+        "z": "510feb187ec9b0ac",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"name\":\"Santander\",\"lat\":43.466667,\"lon\":-3.8}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "b9e96c931ed22543"
             ]
         ]
     }
