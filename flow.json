@@ -7,6 +7,13 @@
         "info": ""
     },
     {
+        "id": "ceb7af605b6e347f",
+        "type": "tab",
+        "label": "Open Weather Map Predicción",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "bebca97d47a86131",
         "type": "ui_base",
         "theme": {
@@ -80,7 +87,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "light"
             }
         },
         "site": {
@@ -113,66 +121,50 @@
     {
         "id": "ebb30b17ef3e19b1",
         "type": "ui_group",
-        "name": "Predicción Lluvia Santander",
+        "name": "Predicción Lluvia Santander (AEMET)",
         "tab": "5c3b9cb110393e1f",
         "order": 1,
         "disp": true,
         "width": "21",
-        "collapse": false
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "7418af94d289482a",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
+        "id": "d5411d95c626e78a",
+        "type": "ui_group",
+        "name": "Predicción Temperatura Santander (Open Weather Map)",
+        "tab": "5c3b9cb110393e1f",
         "order": 2,
-        "width": 21,
-        "height": 1
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
     },
     {
-        "id": "f6b6e42b0829ec96",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
-        "order": 4,
-        "width": 21,
-        "height": 1
-    },
-    {
-        "id": "68d32f44b6ad74c5",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
-        "order": 6,
-        "width": 21,
-        "height": 1
-    },
-    {
-        "id": "a8398219ed794cb2",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
-        "order": 8,
-        "width": 21,
-        "height": 1
-    },
-    {
-        "id": "49708793e91a7dfe",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
-        "order": 10,
-        "width": 21,
-        "height": 1
-    },
-    {
-        "id": "85bde3f786c64096",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ebb30b17ef3e19b1",
-        "order": 12,
-        "width": 21,
-        "height": 1
+        "id": "1e1b7c2b3665fbc4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "enriquecrespo.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "8deb4c14.ee2b1",
@@ -182,13 +174,9 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
-        "repeat": "43200",
+        "repeat": "900",
         "crontab": "",
         "once": true,
         "onceDelay": "",
@@ -219,24 +207,9 @@
         "y": 140,
         "wires": [
             [
-                "a2a53510.6635b8",
                 "3974527e.01031e"
             ]
         ]
-    },
-    {
-        "id": "a2a53510.6635b8",
-        "type": "debug",
-        "z": "2eb373d0.c952fc",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "x": 570,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "fc6e73f3.061c",
@@ -270,7 +243,7 @@
         "type": "debug",
         "z": "2eb373d0.c952fc",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -345,7 +318,7 @@
         "type": "debug",
         "z": "2eb373d0.c952fc",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -369,7 +342,8 @@
                 "e1c54a83.819008",
                 "b2b1ac09eeca9767",
                 "77037d471458d034",
-                "6b220e9d9e05872f"
+                "6b220e9d9e05872f",
+                "3f88444b61c16a01"
             ]
         ]
     },
@@ -414,8 +388,8 @@
         "name": "",
         "group": "ebb30b17ef3e19b1",
         "order": 1,
-        "width": "3",
-        "height": "3",
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[0].fecha}}",
         "label": "%",
@@ -429,6 +403,7 @@
         ],
         "seg1": "",
         "seg2": "",
+        "className": "",
         "x": 850,
         "y": 400,
         "wires": []
@@ -439,9 +414,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 3,
-        "width": "3",
-        "height": "3",
+        "order": 2,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[1].fecha}}",
         "label": "%",
@@ -465,9 +440,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 5,
-        "width": "3",
-        "height": "3",
+        "order": 3,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[2].fecha}}",
         "label": "%",
@@ -491,9 +466,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 7,
-        "width": "3",
-        "height": "3",
+        "order": 4,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[3].fecha}}",
         "label": "%",
@@ -517,9 +492,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 9,
-        "width": "3",
-        "height": "3",
+        "order": 5,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[4].fecha}}",
         "label": "%",
@@ -543,9 +518,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 11,
-        "width": "3",
-        "height": "3",
+        "order": 6,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[5].fecha}}",
         "label": "%",
@@ -569,9 +544,9 @@
         "z": "2eb373d0.c952fc",
         "name": "",
         "group": "ebb30b17ef3e19b1",
-        "order": 13,
-        "width": "3",
-        "height": "3",
+        "order": 7,
+        "width": 3,
+        "height": 3,
         "gtype": "gage",
         "title": "{{msg.payload[0].prediccion.dia[6].fecha}}",
         "label": "%",
@@ -661,6 +636,396 @@
                 "0ae09c42b6c64e89",
                 "28840f8a9e49a0b3",
                 "715cb74c58aeae3f"
+            ]
+        ]
+    },
+    {
+        "id": "4f69f0089f144b46",
+        "type": "openweathermap",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "wtype": "forecast",
+        "lon": "",
+        "lat": "",
+        "city": "santander",
+        "country": "ES",
+        "language": "en",
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "97adc2f5dea9ac7c",
+                "558b92716974bed4",
+                "9c154f18111cfc14",
+                "cf413bf0fa358184",
+                "ebebf389ab6d7e55",
+                "51056e36b18fb4d6",
+                "6a7adef7671ab5bf"
+            ]
+        ]
+    },
+    {
+        "id": "4a4ee3087a02a1bb",
+        "type": "inject",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "4f69f0089f144b46"
+            ]
+        ]
+    },
+    {
+        "id": "97adc2f5dea9ac7c",
+        "type": "ui_gauge",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "group": "d5411d95c626e78a",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "{{msg.payload[0].dt_txt}}",
+        "label": "ºC",
+        "format": "{{msg.payload[0].main.temp}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "25",
+        "className": "",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "558b92716974bed4",
+        "type": "debug",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9c154f18111cfc14",
+        "type": "ui_gauge",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "group": "d5411d95c626e78a",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "{{msg.payload[8].dt_txt}}",
+        "label": "ºC",
+        "format": "{{msg.payload[8].main.temp}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "25",
+        "className": "",
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cf413bf0fa358184",
+        "type": "ui_gauge",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "group": "d5411d95c626e78a",
+        "order": 3,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "{{msg.payload[16].dt_txt}}",
+        "label": "ºC",
+        "format": "{{msg.payload[16].main.temp}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "25",
+        "className": "",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ebebf389ab6d7e55",
+        "type": "ui_gauge",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "group": "d5411d95c626e78a",
+        "order": 4,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "{{msg.payload[24].dt_txt}}",
+        "label": "ºC",
+        "format": "{{msg.payload[24].main.temp}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "25",
+        "className": "",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "51056e36b18fb4d6",
+        "type": "ui_gauge",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "group": "d5411d95c626e78a",
+        "order": 5,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "{{msg.payload[32].dt_txt}}",
+        "label": "ºC",
+        "format": "{{msg.payload[32].main.temp}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "25",
+        "className": "",
+        "x": 510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5cc051e66e5213ee",
+        "type": "mqtt out",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1e1b7c2b3665fbc4",
+        "x": 1270,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3f88444b61c16a01",
+        "type": "change",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].prediccion.dia",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 180,
+        "wires": [
+            [
+                "10e2aeacb0237801"
+            ]
+        ]
+    },
+    {
+        "id": "10e2aeacb0237801",
+        "type": "split",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 950,
+        "y": 180,
+        "wires": [
+            [
+                "37bd168d136f4633"
+            ]
+        ]
+    },
+    {
+        "id": "37bd168d136f4633",
+        "type": "change",
+        "z": "2eb373d0.c952fc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "\"educantabria/nodo00/santander/prediccion/lluvia/\"&$substringBefore(payload.fecha,'T')",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.probPrecipitacion[0].value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 180,
+        "wires": [
+            [
+                "5cc051e66e5213ee"
+            ]
+        ]
+    },
+    {
+        "id": "6e394d0152ed0da8",
+        "type": "mqtt out",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1e1b7c2b3665fbc4",
+        "x": 870,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6a7adef7671ab5bf",
+        "type": "split",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "0c8aafbe3c3dcb7a",
+                "c5a13fa0702e09a7"
+            ]
+        ]
+    },
+    {
+        "id": "c5a13fa0702e09a7",
+        "type": "debug",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0c8aafbe3c3dcb7a",
+        "type": "change",
+        "z": "ceb7af605b6e347f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "\"educantabria/nodo00/santander/prediccion/temperatura/\"&$substringBefore(payload.dt_txt,' ')&\"/\"&$substring(payload.dt_txt, 11, 5)\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "6e394d0152ed0da8"
             ]
         ]
     }
