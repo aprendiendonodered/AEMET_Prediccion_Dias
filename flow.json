@@ -185,6 +185,32 @@
         "className": ""
     },
     {
+        "id": "3c96b991262ff164",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "enriquecrespo.com",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
         "id": "8deb4c14.ee2b1",
         "type": "inject",
         "z": "2eb373d0.c952fc",
@@ -266,6 +292,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 750,
         "y": 80,
         "wires": []
@@ -877,7 +905,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "1e1b7c2b3665fbc4",
+        "broker": "3c96b991262ff164",
         "x": 1270,
         "y": 180,
         "wires": []
@@ -938,7 +966,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "\"educantabria/nodo00/santander/prediccion/lluvia/\"&$substringBefore(payload.fecha,'T')",
+                "to": "\"casa/santander/prediccion/lluvia/\"&$substringBefore(payload.fecha,'T')",
                 "tot": "jsonata"
             },
             {
@@ -975,7 +1003,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "1e1b7c2b3665fbc4",
+        "broker": "3c96b991262ff164",
         "x": 870,
         "y": 360,
         "wires": []
@@ -1026,7 +1054,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "\"educantabria/nodo00/santander/prediccion/temperatura/\"&$substringBefore(payload.dt_txt,' ')&\"/\"&$substring(payload.dt_txt, 11, 5)\t",
+                "to": "\"casa/santander/prediccion/temperatura/\"&$substringBefore(payload.dt_txt,' ')&\"/\"&$substring(payload.dt_txt, 11, 5)\t",
                 "tot": "jsonata"
             },
             {
@@ -1051,41 +1079,6 @@
         ]
     },
     {
-        "id": "b9e96c931ed22543",
-        "type": "ui_worldmap",
-        "z": "510feb187ec9b0ac",
-        "group": "c29b25c2f21a3b9e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "lat": "42.47",
-        "lon": "-2.445556",
-        "zoom": "7",
-        "layer": "OSMG",
-        "cluster": "",
-        "maxage": "",
-        "usermenu": "hide",
-        "layers": "hide",
-        "panit": "false",
-        "panlock": "false",
-        "zoomlock": "false",
-        "hiderightclick": "true",
-        "coords": "none",
-        "showgrid": "false",
-        "allowFileDrop": "false",
-        "path": "/worldmap",
-        "overlist": "DR,CO,RA,DN,HM",
-        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS,SW",
-        "mapname": "",
-        "mapurl": "",
-        "mapopt": "",
-        "mapwms": false,
-        "x": 620,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "8c2631df40f39e02",
         "type": "inject",
         "z": "510feb187ec9b0ac",
@@ -1099,7 +1092,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "30",
+        "repeat": "15",
         "crontab": "",
         "once": true,
         "onceDelay": "2",
@@ -1212,8 +1205,8 @@
         "y": 120,
         "wires": [
             [
-                "b9e96c931ed22543",
-                "3c8a0e1d8a5f5c97"
+                "3c8a0e1d8a5f5c97",
+                "1794cc87516e1e3a"
             ]
         ]
     },
@@ -1230,8 +1223,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 160,
+        "x": 590,
+        "y": 60,
         "wires": []
     },
     {
@@ -1401,7 +1394,7 @@
         "y": 180,
         "wires": [
             [
-                "b9e96c931ed22543"
+                "1794cc87516e1e3a"
             ]
         ]
     },
@@ -1470,8 +1463,43 @@
         "y": 240,
         "wires": [
             [
-                "b9e96c931ed22543"
+                "1794cc87516e1e3a"
             ]
         ]
+    },
+    {
+        "id": "1794cc87516e1e3a",
+        "type": "ui_worldmap",
+        "z": "510feb187ec9b0ac",
+        "group": "c29b25c2f21a3b9e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "lat": "42.47",
+        "lon": "-2.445556",
+        "zoom": "7",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS,SW",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 600,
+        "y": 180,
+        "wires": []
     }
 ]
